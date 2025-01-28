@@ -173,8 +173,8 @@ plt.show()
 import random
 n=random.randint(0, x_test.shape[0]-1) #Select the index of image to be loaded for testing
 img = x_test[n]
-plt.show(img)
-
+plt.imshow(img)
+plt.show()
 #Extract features and reshape to right dimensions
 input_img = np.expand_dims(img, axis=0) #Expand dims so the input is (num images, x, y, c)
 input_img_features=feature_extractor(input_img)
