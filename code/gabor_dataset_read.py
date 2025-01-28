@@ -168,7 +168,7 @@ cm = confusion_matrix(test_labels, test_prediction)
 fig, ax = plt.subplots(figsize=(6,6))         # Sample figsize in inches
 sns.set(font_scale=1.6)
 sns.heatmap(cm, annot=True, ax=ax)
-
+plt.show()
 #Check results on a few random images
 import random
 n=random.randint(0, x_test.shape[0]-1) #Select the index of image to be loaded for testing
