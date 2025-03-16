@@ -69,6 +69,7 @@ def extract_frames(video_path, output_folder, interval=30):
     print(f"Frames extracted every {interval} seconds: {saved_count}")
 
 # Example usage
-video_path = r'D:\Crack-Dataset\my_data\26_2_25_Bending_test_for_Calcined_clay\VID_20250226_133535.mp4'
-output_folder = r'C:\Users\luca\Desktop\New folder\extract_frames'
+    
+video_path = r'D:\Crack-Dataset\my_data\26_2_25_Bending_test_for_Calcined_clay\day1_3.mp4'
+output_folder = r'D:\Crack-Dataset\my_data\extract_frames\26_2_25_Bending_test_for_Calcined_clay\day1_3'
 extract_frames(video_path, output_folder, interval=30)
