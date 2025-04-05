@@ -70,6 +70,6 @@ def extract_frames(video_path, output_folder, interval=30):
 
 # Example usage
     
-video_path = r'D:\Crack-Dataset\my_data\26_2_25_Bending_test_for_Calcined_clay\day1_3.mp4'
-output_folder = r'D:\Crack-Dataset\my_data\extract_frames\26_2_25_Bending_test_for_Calcined_clay\day1_3'
+video_path = r'D:\Crack-Dataset\my_data\26_2_25_Bending_test_for_Calcined_clay\day1_1.mp4'
+output_folder = r'D:\Crack-Dataset\my_data\extract_frames\26_2_25_Bending_test_for_Calcined_clay\day1_1'
 extract_frames(video_path, output_folder, interval=30)
