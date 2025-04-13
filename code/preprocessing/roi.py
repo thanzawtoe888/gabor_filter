@@ -31,5 +31,5 @@ cv2.imwrite('../results/concrete_gray.jpg', gray)
 cv2.imwrite('../results/concrete_edges.jpg', edges)
 
 print("Preprocessing complete:")
-print(" - Grayscale image saved as: /mnt/data/concrete_gray.jpg")
-print(" - Canny edge image saved as: /mnt/data/concrete_edges.jpg")
+print(" - Grayscale image saved as: ../results/concrete_gray.jpg")
+print(" - Canny edge image saved as: ../results/concrete_edges.jpg")
