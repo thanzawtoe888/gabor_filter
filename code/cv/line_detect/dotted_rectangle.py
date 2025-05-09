@@ -27,7 +27,9 @@ for y in range(top_left[1], bottom_right[1], dot_length + space_length):
 for y in range(top_left[1], bottom_right[1], dot_length + space_length):
     cv.line(image, (bottom_right[0], y), (bottom_right[0], y + dot_length), (255, 255, 255), thickness=1)
 
+cv.imread("../../results/dotted_rectangle.jpg", image)  # Save the image with detected lines
 # Show the image
 cv.imshow('Dotted Rectangle', image)
 cv.waitKey(0)
 cv.destroyAllWindows()
+
