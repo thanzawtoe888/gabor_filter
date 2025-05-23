@@ -8,7 +8,7 @@ def plot_comparison(original, red_hist, green_hist, blue_hist):
     
     # Display the original image
     ax1.imshow(original)
-    ax1.set_title('Original')
+    ax1.set_title('Resized_image_1920x1080')
     ax1.axis('off')
     
     # Display the red histogram
@@ -31,7 +31,7 @@ def plot_comparison(original, red_hist, green_hist, blue_hist):
     plt.show()
 
 # Load the image    
-crack_image = io.imread('../images/frame_0013.jpg')  
+crack_image = io.imread('../results/rescale.jpg')  
 
 # Extract the red, green, and blue channels from the image
 red_channel = crack_image[:, :, 0]

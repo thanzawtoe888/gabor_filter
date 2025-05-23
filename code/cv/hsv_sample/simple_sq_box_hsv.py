@@ -14,7 +14,7 @@ cv.rectangle(blank, (100, 100), (200, 300), (255, 0, 0), cv.FILLED)  # Blue rect
 cv.rectangle(blank, (300, 150), (400, 350), (0, 0, 255), cv.FILLED)  # Red rectangle
 
 # Convert to HSV color space
-hsv = cv.cvtColor(blank, cv.COLOR_BGR2HSV)
+hsv = cv.cvtColor(blank,  cv.COLOR_BGR2HSV)
 
 # Define HSV range for red color (two ranges due to red spanning both ends of the hue spectrum)
 lower_red1 = np.array([0, 100, 100])
