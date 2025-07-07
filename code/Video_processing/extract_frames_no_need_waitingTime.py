@@ -34,6 +34,8 @@ def extract_frames_fast(video_path, output_folder, interval=30):
     print(f"Frames extracted every {interval} seconds: {saved_count}")
 
 # Example usage
-video_path = r'D:\Crack-Dataset\my_data\26_2_25_Bending_test_for_Calcined_clay\day1_8.mp4'
-output_folder = r'D:\Crack-Dataset\my_data\extract_frames\26_2_25_Bending_test_for_Calcined_clay\day1_8'
+video_path = r'C:\Users\luca\Desktop\Git Repo\myMatLab\my_research\auto_detect_ref\output_720p.mp4'
+# video_path = r'D:\Crack-Dataset\my_data\7_5_2025_final\VID_20250507_161408.mp4'
+# output_folder = r'D:\Crack-Dataset\my_data\extract_frames\7_5_2025_final\day7_3'
+output_folder = r'C:\Users\luca\Desktop\Git Repo\myMatLab\my_research\auto_detect_ref\frames_720_final'
 extract_frames_fast(video_path, output_folder, interval=30)

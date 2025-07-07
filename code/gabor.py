@@ -9,6 +9,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
+# --- Gabor filtering for texture features ---
 ksize = 5  #Use size that makes sense to the image and fetaure size. Large may not be good. 
 #On the synthetic image it is clear how ksize affects imgae (try 5 and 50)
 sigma = 5 #Large sigma on small features will fully miss the features. 
@@ -22,12 +23,13 @@ phi = 1  #Phase offset. I leave it to 0. (For hidden pic use 0.8)
 kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
 
 plt.imshow(kernel)
+
 plt.show()
 
-img = cv2.imread(r"images/concrete_crack.jpg")
+img = cv2.imread(r"results/concrete_edges.jpg")
 #img = cv2.imread(r"images/concrete_crack.jpg")
 #img = cv2.imread(r'C:\Users\luca\Desktop\git_repo\gabor_filter\code\images\zebra.jpg')  #Image source wikipedia: https://en.wikipedia.org/wiki/Plains_zebra
-#img = cv2.imread('./images/synthetic.jpg') #USe ksize:15, s:5, q:pi/2, l:pi/4, g:0.9, phi:0.8
+# img = cv2.imread('./images/synthetic.jpg') #USe ksize:15, s:5, q:pi/2, l:pi/4, g:0.9, phi:0.8
 plt.imshow(img, cmap='gray')
 plt.show()
 
@@ -61,5 +63,43 @@ ax[1].imshow(fimg, cmap='gray')
 ax[1].set_title("Filtered Image")
 ax[1].axis("off")
 
+plt.tight_layout()
+plt.show()
+
+# --- Gabor filtering for horizontal and vertical lines ---
+# Settings for line detection
+ksize = 11  # slightly bigger kernel to match large lines
+sigma = 5
+lamda = 10  # wavelength of sinusoidal components
+gamma = 0.5  # < 1 makes kernel more elongated
+phi = 0  # phase shift
+
+# Filter 1: Vertical (theta = 0)
+kernel_v = cv2.getGaborKernel((ksize, ksize), sigma, 0, lamda, gamma, psi=phi)
+
+# Filter 2: Horizontal (theta = pi/2)
+kernel_h = cv2.getGaborKernel((ksize, ksize), sigma, np.pi/2, lamda, gamma, psi=phi)
+
+# Apply to grayscale image
+filtered_v = cv2.filter2D(img, -1, kernel_v)  # highlights vertical components
+filtered_h = cv2.filter2D(img, -1, kernel_h)  # highlights horizontal components
+
+# Combine both filtered results
+filtered_lines = cv2.max(filtered_v, filtered_h)  # merges both
+
+# Show results
+plt.figure(figsize=(12, 4))
+plt.subplot(1, 3, 1)
+plt.title('Vertical lines')
+plt.imshow(filtered_v, cmap='gray')
+plt.axis('off')
+plt.subplot(1, 3, 2)
+plt.title('Horizontal lines')
+plt.imshow(filtered_h, cmap='gray')
+plt.axis('off')
+plt.subplot(1, 3, 3)
+plt.title('Combined lines')
+plt.imshow(filtered_lines, cmap='gray')
+plt.axis('off')
 plt.tight_layout()
 plt.show()
