@@ -8,7 +8,7 @@ image = cv2.imread(image_path)
 height, width, _ = image.shape
 
 # Define the four points of the bounding box (pixel coordinates)
-points = [(0.6, 775), (3833, 775), (0.6, 1496), (3833, 1496)]
+points = [(0, 775), (3833, 775), (3833, 1496), (0, 1496)]
 
 # Convert points to a numpy array
 pts = np.array(points, np.int32)
